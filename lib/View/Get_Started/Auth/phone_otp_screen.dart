@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:service_app/View/Get_Started/Auth/signup_screen.dart';
-import 'package:service_app/View/Screens/profile_screen.dart';
 
 class PhoneOtpScreen extends StatefulWidget {
   const PhoneOtpScreen({super.key});
@@ -78,7 +77,7 @@ class _PhoneOtpScreenState extends State<PhoneOtpScreen> {
               Navigator.push(context, MaterialPageRoute(builder: (context)=>SignupScreen()));
             },
             child: Container(
-              height: 100,
+              height: 50,
               width: 350,
               decoration: BoxDecoration(
                   color:    Color(0xffAC1BF5),

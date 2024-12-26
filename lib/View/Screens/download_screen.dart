@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:service_app/View/Screens/rate_experience_screen.dart';
 
 class DownloadScreen extends StatefulWidget {
   const DownloadScreen({super.key});
@@ -39,7 +40,7 @@ class _DownloadScreenState extends State<DownloadScreen> {
             ),
             SizedBox(height: 16),
             ElevatedButton(
-              onPressed: null, // Disable button by default
+              onPressed: (){},// Disable button by default
               style: ElevatedButton.styleFrom(
                 minimumSize: Size(double.infinity, 48),
               ),
@@ -84,6 +85,7 @@ class _DownloadScreenState extends State<DownloadScreen> {
             SizedBox(height: 16),
             ElevatedButton(
               onPressed: () {
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=>RateExperienceScreen()));
                 // Handle rating action
               },
               style: ElevatedButton.styleFrom(

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:service_app/View/Get_Started/Auth/signup_screen.dart';
+import 'package:service_app/View/Screens/language_screen.dart';
 
 class SignupOtpScreen extends StatefulWidget {
   const SignupOtpScreen({super.key});
@@ -73,7 +73,9 @@ class _SignupOtpScreenState extends State<SignupOtpScreen> {
 
           SizedBox(height: 40,),
           GestureDetector(
-            onTap: (){},
+            onTap: (){
+              Navigator.push(context, MaterialPageRoute(builder: (context)=>LanguageScreen()));
+            },
             child: Container(
               height: 50,
               width: 350,
