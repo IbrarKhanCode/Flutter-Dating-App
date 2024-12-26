@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:service_app/View/Get_Started/Auth/signup_screen.dart';
+import 'package:service_app/View/Get_Started/Auth/signup_and_login_screen.dart';
 
 class GetStartedScreen extends StatefulWidget {
   const GetStartedScreen({super.key});
@@ -67,7 +67,7 @@ class _GetStartedScreenState extends State<GetStartedScreen> {
               // Get Started Button
               GestureDetector(
                 onTap: (){
-                  Navigator.push(context, MaterialPageRoute(builder: (context)=>SignupScreen()));
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=>SignupAndLoginScreen()));
                 },
                 child: Container(
                   height: 50,
