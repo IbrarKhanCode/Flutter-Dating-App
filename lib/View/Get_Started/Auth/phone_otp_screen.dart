@@ -78,7 +78,7 @@ class _PhoneOtpScreenState extends State<PhoneOtpScreen> {
               Navigator.push(context, MaterialPageRoute(builder: (context)=>SignupScreen()));
             },
             child: Container(
-              height: 50,
+              height: 100,
               width: 350,
               decoration: BoxDecoration(
                   color:    Color(0xffAC1BF5),
