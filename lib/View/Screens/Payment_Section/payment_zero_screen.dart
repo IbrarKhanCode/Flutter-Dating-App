@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:service_app/Custom/custom.dart';
-import 'package:service_app/View/Screens/payment_screen_one.dart';
+import 'package:service_app/View/Screens/Payment_Section/payment_screen_one.dart';
 
 class PaymentZeroScreen extends StatefulWidget {
   const PaymentZeroScreen({super.key});
