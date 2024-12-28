@@ -1,7 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:service_app/Custom/custom.dart';
 import 'package:service_app/View/Screens/match_agreement_screen.dart';
 
-class ServiceRequestScreen extends StatelessWidget {
+class ServiceRequestScreen extends StatefulWidget {
+
+  @override
+  State<ServiceRequestScreen> createState() => _ServiceRequestScreenState();
+}
+
+class _ServiceRequestScreenState extends State<ServiceRequestScreen> {
+
+  int _currentIndex = 1;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -195,6 +205,37 @@ class ServiceRequestScreen extends StatelessWidget {
             ),
           ],
         ),
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        type: BottomNavigationBarType.fixed,
+        showUnselectedLabels: true,
+        currentIndex: _currentIndex,
+        onTap: (index){
+          setState(() {
+            _currentIndex = index;
+          });
+        },
+        backgroundColor: Colors.white,
+        items: [
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home),
+            label: "Home",
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home_repair_service),
+            label: "Services",
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.question_answer,),
+            label: "Chat",
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.person),
+            label: "Profile",
+          ),
+        ],
+        selectedItemColor: primaryColor,
+        unselectedItemColor: Colors.grey,
       ),
     );
   }

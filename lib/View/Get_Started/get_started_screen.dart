@@ -40,10 +40,10 @@ class _GetStartedScreenState extends State<GetStartedScreen> {
                 height: 300,
                 width: 270,
                 decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(15),
+                  borderRadius: BorderRadius.circular(5),
                   image: DecorationImage(
                     fit: BoxFit.cover,
-                      image: AssetImage('images/started.png')),
+                      image: AssetImage('images/login.png')),
                 ),
               ),
               SizedBox(height: 20),

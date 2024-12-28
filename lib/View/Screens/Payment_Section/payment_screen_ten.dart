@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:service_app/Custom/custom.dart';
+import 'package:service_app/View/Screens/Payment_Section/payment_screen_eleven.dart';
 
 class PaymentScreenTen extends StatefulWidget {
   const PaymentScreenTen({super.key});
@@ -226,7 +227,7 @@ class _PaymentScreenTenState extends State<PaymentScreenTen> {
               SizedBox(height: 20,),
               GestureDetector(
                 onTap: (){
-                  // Navigator.push(context, MaterialPageRoute(builder: (context)=>PaymentScreenTen()));
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=>PaymentScreenEleven()));
                 },
                 child: Container(
                   height: 50,

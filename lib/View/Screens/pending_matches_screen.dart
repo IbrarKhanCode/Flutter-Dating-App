@@ -115,7 +115,9 @@ class PendingMatchesScreen extends StatelessWidget {
         ),
       ),
       bottomNavigationBar: BottomNavigationBar(
-        currentIndex: 1, // Set the default selected tab
+        currentIndex: 1,
+        type: BottomNavigationBarType.fixed,
+        backgroundColor: Colors.white,
         items: [
           BottomNavigationBarItem(
             icon: Icon(Icons.home),
@@ -126,7 +128,7 @@ class PendingMatchesScreen extends StatelessWidget {
             label: "Matches",
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.message),
+            icon: Icon(Icons.chat_bubble),
             label: "Messages",
           ),
           BottomNavigationBarItem(

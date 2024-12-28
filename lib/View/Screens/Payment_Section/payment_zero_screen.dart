@@ -10,6 +10,9 @@ class PaymentZeroScreen extends StatefulWidget {
 }
 
 class _PaymentZeroScreenState extends State<PaymentZeroScreen> {
+
+  int _selectedIndex = 2;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -398,9 +401,38 @@ class _PaymentZeroScreenState extends State<PaymentZeroScreen> {
               ],
             ),
             SizedBox(height: 20,),
-
           ],
         ),
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        currentIndex: _selectedIndex,
+        type: BottomNavigationBarType.fixed,
+        backgroundColor: Colors.white,
+        items: [
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home),
+            label: "Home",
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.search),
+            label: "Search",
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.workspace_premium),
+            label: "Premium",
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.person),
+            label: "Profile",
+          ),
+        ],
+        selectedItemColor: Colors.purple,
+        unselectedItemColor: Colors.grey,
+        onTap: (index) {
+          setState(() {
+            _selectedIndex = index;
+          });
+        },
       ),
     );
   }
