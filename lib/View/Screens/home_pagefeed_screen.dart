@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:service_app/Custom/custom.dart';
-import 'package:service_app/View/Screens/Notification_Section/notification_screen.dart';
 import 'package:service_app/View/Screens/service_page_screen.dart';
 
 class HomePagefeedScreen extends StatefulWidget {
@@ -12,7 +11,6 @@ class HomePagefeedScreen extends StatefulWidget {
 
 class _HomePagefeedScreenState extends State<HomePagefeedScreen> {
 
-  int _currentIndex = 0 ;
 
 
   @override
@@ -442,45 +440,9 @@ class _HomePagefeedScreenState extends State<HomePagefeedScreen> {
           ),
         ),
       ),
-      bottomNavigationBar: BottomNavigationBar(
-        type: BottomNavigationBarType.fixed,
-        showUnselectedLabels: true,
-        currentIndex: _currentIndex,
-        onTap: (index){
-          setState(() {
-            _currentIndex = index;
-          });
-        },
-        backgroundColor: Colors.white,
-        items: [
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            label: "Home",
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.explore),
-            label: "Explore",
-          ),
-          BottomNavigationBarItem(
-            icon: GestureDetector(
-              onTap: (){
-                Navigator.push(context, MaterialPageRoute(builder: (context)=>NotificationScreen()));
-              },
-                child: Icon(Icons.question_answer,)),
-            label: "Chat",
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.calendar_today_rounded),
-            label: "Calender",
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.person),
-            label: "Profile",
-          ),
-        ],
-        selectedItemColor: primaryColor,
-        unselectedItemColor: Colors.grey,
-      ),
+
     );
+
   }
 }
+

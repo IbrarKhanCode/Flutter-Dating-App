@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:service_app/View/Screens/home_pagefeed_screen.dart';
+import 'package:service_app/View/Screens/bottom_navigation_bar_screen.dart';
 
 class ProfileSetupScreen extends StatefulWidget {
   const ProfileSetupScreen({super.key});
@@ -347,7 +347,7 @@ class _ProfileSetupScreenState extends State<ProfileSetupScreen> {
               SizedBox(height: 50,),
               GestureDetector(
                 onTap: (){
-                  Navigator.push(context, MaterialPageRoute(builder: (context)=>HomePagefeedScreen()));
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=>BottomNavigationBarScreen()));
                 },
                 child: Container(
                   height: 50,
