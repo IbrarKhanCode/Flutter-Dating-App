@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:service_app/View/Get_Started/Auth/signup_and_login_screen.dart';
+import 'package:service_app/View/Screens/bottom_navigation_bar_two.dart';
 
 class GetStartedScreen extends StatefulWidget {
   const GetStartedScreen({super.key});
@@ -25,7 +26,7 @@ class _GetStartedScreenState extends State<GetStartedScreen> {
                   fontSize: 30,
                   fontWeight: FontWeight.w500,
                   color: Color(0xffAC1BF5),
-                  fontFamily: 'Pacifico'
+                  fontFamily: 'Pacifico',
                 ),
               ),
               SizedBox(height: 10),
@@ -67,7 +68,7 @@ class _GetStartedScreenState extends State<GetStartedScreen> {
               // Get Started Button
               GestureDetector(
                 onTap: (){
-                  Navigator.push(context, MaterialPageRoute(builder: (context)=>SignupAndLoginScreen()));
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=>BottomNavigationBarTwo()));
                 },
                 child: Container(
                   height: 50,
