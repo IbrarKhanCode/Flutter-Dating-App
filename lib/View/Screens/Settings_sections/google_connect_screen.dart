@@ -134,6 +134,7 @@ class _GoogleConnectScreenState extends State<GoogleConnectScreen> {
                   ),
                 ),
               ),
+              SizedBox(height: 30,),
             ],
           ),
         ),

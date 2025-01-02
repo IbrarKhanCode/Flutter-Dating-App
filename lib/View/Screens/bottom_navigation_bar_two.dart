@@ -17,7 +17,7 @@ class _BottomNavigationBarTwoState extends State<BottomNavigationBarTwo> {
   final List<Widget> screens = [
 
     AdminDashboardScreen(),
-    Center(child: Text('Users Screen')),
+    Center(child: Text('User Screen')),
     Center(child: Text('Stats Screen')),
     SettingScreen(),
 

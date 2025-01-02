@@ -186,9 +186,10 @@ class _DisputeResolutionScreenState extends State<DisputeResolutionScreen> {
                 ),
                 child: Text("Submit Dispute",style: TextStyle(color: Colors.white),),
               ),
-              SizedBox(height: 16),
+              SizedBox(height: 30),
             ],
           ),
+
         ),
       ),
     );

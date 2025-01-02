@@ -79,19 +79,14 @@ class _ProfileSetupScreenState extends State<ProfileSetupScreen> {
                               image: AssetImage('images/setup.png'))
                       ),
                     ),
-                    GestureDetector(
-                      onTap: (){
-                        Navigator.push(context, MaterialPageRoute(builder: (context)=>ProfileSetupScreen()));
-                      },
-                      child: Container(
-                        height: 40,
-                        width: 40,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(30),
-                          color: Color(0xffAC1BF5),
-                        ),
-                        child: Center(child: Icon(Icons.download,color: Colors.white,)),
+                    Container(
+                      height: 40,
+                      width: 40,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(30),
+                        color: Color(0xffAC1BF5),
                       ),
+                      child: Center(child: Icon(Icons.download,color: Colors.white,)),
                     )
                   ],
                 ),
@@ -364,7 +359,7 @@ class _ProfileSetupScreenState extends State<ProfileSetupScreen> {
                   ),
                 ),
               ),
-
+              SizedBox(height: 30,),
             ],
           ),
         ),

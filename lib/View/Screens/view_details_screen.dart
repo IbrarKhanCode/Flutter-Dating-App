@@ -22,7 +22,11 @@ class _ViewDetailsScreenState extends State<ViewDetailsScreen> {
               SizedBox(height: 50,),
               Row(
                 children: [
-                  Icon(Icons.arrow_back,color: Colors.black,),
+                  GestureDetector(
+                    onTap: (){
+                      Navigator.pop(context);
+                    },
+                      child: Icon(Icons.arrow_back,color: Colors.black,)),
                   SizedBox(width: 10,),
                   Text(
                     "Transaction Details",

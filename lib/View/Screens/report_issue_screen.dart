@@ -21,7 +21,11 @@ class _ReportIssueScreenState extends State<ReportIssueScreen> {
               SizedBox(height: 50,),
               Row(
                 children: [
-                  Icon(Icons.arrow_back,color: Colors.black,),
+                  IconButton(
+                    onPressed: (){
+                      Navigator.pop(context);
+                    },
+                      icon: Icon(Icons.arrow_back,color: Colors.black,)),
                   SizedBox(width: 10,),
                   Text(
                     "Report an Issue",
@@ -116,9 +120,7 @@ class _ReportIssueScreenState extends State<ReportIssueScreen> {
               ),
               SizedBox(height: 20,),
               GestureDetector(
-                onTap: (){
-                  Navigator.push(context, MaterialPageRoute(builder: (context)=>ReportIssueScreen()));
-                },
+                onTap: (){},
                 child: Container(
                   height: 50,
                   width: 350,

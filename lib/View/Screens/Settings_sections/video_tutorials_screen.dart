@@ -208,7 +208,7 @@ class _VideoTutorialsScreenState extends State<VideoTutorialsScreen> {
                   ),
                 ),
               ),
-              SizedBox(height: 20,),
+              SizedBox(height: 50,),
             ],
           ),
         ),

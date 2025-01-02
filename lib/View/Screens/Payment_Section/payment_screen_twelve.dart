@@ -237,7 +237,7 @@ class _PaymentScreenTwelveState extends State<PaymentScreenTwelve> {
               ),
               SizedBox(height: 15,),
               Text('Secured by SSL 256-bit encryption',style: TextStyle(color: Colors.grey,fontSize: 13),),
-              SizedBox(height: 10,),
+              SizedBox(height: 30,),
             ],
           ),
         ),

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:service_app/View/Get_Started/Auth/signup_and_login_screen.dart';
 import 'package:service_app/View/Screens/bottom_navigation_bar_two.dart';
+import 'package:service_app/View/Screens/privacy_screen.dart';
+import 'package:service_app/View/Screens/terms_and_conditions_screen.dart';
 
 class GetStartedScreen extends StatefulWidget {
   const GetStartedScreen({super.key});
@@ -13,7 +15,7 @@ class _GetStartedScreenState extends State<GetStartedScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xFFF3E8FD), // Light purple background
+      backgroundColor: Color(0xFFF3E8FD),
       body: SafeArea(
         child: SingleChildScrollView(
           child: Column(
@@ -68,14 +70,14 @@ class _GetStartedScreenState extends State<GetStartedScreen> {
               // Get Started Button
               GestureDetector(
                 onTap: (){
-                  Navigator.push(context, MaterialPageRoute(builder: (context)=>BottomNavigationBarTwo()));
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=>SignupAndLoginScreen()));
                 },
                 child: Container(
                   height: 50,
                   width: 350,
                   decoration: BoxDecoration(
                    color:    Color(0xffAC1BF5),
-                    borderRadius: BorderRadius.circular(8)
+                    borderRadius: BorderRadius.circular(8),
                   ),
                   child: Center(
                     child: Text(
@@ -108,7 +110,7 @@ class _GetStartedScreenState extends State<GetStartedScreen> {
                 children: [
                   GestureDetector(
                     onTap: () {
-                      // Handle Terms of Service click
+                      Navigator.push(context, MaterialPageRoute(builder: (context)=>TermsAndConditionsScreen()));
                     },
                     child: Text(
                       "Terms of Service",
@@ -125,7 +127,7 @@ class _GetStartedScreenState extends State<GetStartedScreen> {
                   ),
                   GestureDetector(
                     onTap: () {
-                      // Handle Privacy Policy click
+                      Navigator.push(context, MaterialPageRoute(builder: (context)=>PrivacyScreen()));
                     },
                     child: Text(
                       "Privacy Policy",

@@ -1,19 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:service_app/Custom/custom.dart';
-import 'package:service_app/View/Screens/Settings_sections/news_screen.dart';
-import 'package:service_app/View/Screens/Settings_sections/q_and_a_screen.dart';
-import 'package:service_app/View/Screens/Settings_sections/tips_screen.dart';
-import 'package:service_app/View/Screens/Settings_sections/tutorials_screen.dart';
-import 'package:service_app/View/Screens/Survey/survey_and_feedback_screen.dart';
 
-class CommunityFormScreen extends StatefulWidget {
-  const CommunityFormScreen({super.key});
+class QAndAScreen extends StatefulWidget {
+  const QAndAScreen({super.key});
 
   @override
-  State<CommunityFormScreen> createState() => _CommunityFormScreenState();
+  State<QAndAScreen> createState() => _QAndAScreenState();
 }
 
-class _CommunityFormScreenState extends State<CommunityFormScreen> {
+class _QAndAScreenState extends State<QAndAScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -31,20 +26,16 @@ class _CommunityFormScreenState extends State<CommunityFormScreen> {
                         Navigator.pop(context);
                       },
                       child: Icon(Icons.arrow_back_outlined)),
-                  SizedBox(width: 100,),
-                  Text('Community Forum',style: TextStyle(color: Colors.black,fontSize: 18,fontWeight: FontWeight.w700),)
+                  SizedBox(width: 120,),
+                  Text('Q&A Forum',style: TextStyle(color: Colors.black,fontSize: 18,fontWeight: FontWeight.w700),)
                 ],
               ),
               SizedBox(height: 20,),
               Row(
                 children: [
-                  Text('Popular Topics',style: TextStyle(color: Colors.black,fontSize: 18,fontWeight: FontWeight.w700),),
+                  Text('Recent Questions',style: TextStyle(color: Colors.black,fontSize: 18,fontWeight: FontWeight.w700),),
                   Spacer(),
-                  GestureDetector(
-                    onTap: (){
-                      Navigator.push(context, MaterialPageRoute(builder: (context)=>SurveyAndFeedbackScreen()));
-                    },
-                      child: Text('New Post',style: TextStyle(color: primaryColor),))
+                  Text('Ask Question',style: TextStyle(color: primaryColor),)
 
                 ],
               ),
@@ -65,14 +56,14 @@ class _CommunityFormScreenState extends State<CommunityFormScreen> {
                       SizedBox(height: 10,),
                       Row(
                         children: [
-                          Text('Getting Started Guide',style: TextStyle(color: Colors.black,fontWeight: FontWeight.w700),),
+                          Text('How to integrate API with the platform?',style: TextStyle(color: Colors.black,fontWeight: FontWeight.w700),),
                           Spacer(),
                           Text('2h ago',style: TextStyle(color: Colors.grey,fontSize: 12),)
                         ],
                       ),
                       SizedBox(height: 10,),
-                      Text('Tips and tricks for new users to get started with\n'
-                        'the platform.',style: TextStyle(color: Colors.grey),),
+                      Text('I\'m trying to integrate the REST API but getting\n'
+                      'authentication errors. Any help?',style: TextStyle(color: Colors.grey),),
                       SizedBox(height: 10,),
                       Row(
                         children: [
@@ -106,14 +97,14 @@ class _CommunityFormScreenState extends State<CommunityFormScreen> {
                       SizedBox(height: 10,),
                       Row(
                         children: [
-                          Text('Best Practices for Security',style: TextStyle(color: Colors.black,fontWeight: FontWeight.w700),),
+                          Text('Best way to handle user authentication?',style: TextStyle(color: Colors.black,fontWeight: FontWeight.w700),),
                           Spacer(),
-                          Text('2h ago',style: TextStyle(color: Colors.grey,fontSize: 12),)
+                          Text('1d ago',style: TextStyle(color: Colors.grey,fontSize: 12),)
                         ],
                       ),
                       SizedBox(height: 10,),
-                      Text('Important security measures every user should\n'
-                        'know.',style: TextStyle(color: Colors.grey),),
+                      Text('Looking for recommendations on implementing\n'
+                        'secure user authentication in my app.',style: TextStyle(color: Colors.grey),),
                       SizedBox(height: 10,),
                       Row(
                         children: [
@@ -147,14 +138,14 @@ class _CommunityFormScreenState extends State<CommunityFormScreen> {
                       SizedBox(height: 10,),
                       Row(
                         children: [
-                          Text('Feature Requests',style: TextStyle(color: Colors.black,fontWeight: FontWeight.w700),),
+                          Text('Database optimization tips needed',style: TextStyle(color: Colors.black,fontWeight: FontWeight.w700),),
                           Spacer(),
-                          Text('2h ago',style: TextStyle(color: Colors.grey,fontSize: 12),)
+                          Text('2d ago',style: TextStyle(color: Colors.grey,fontSize: 12),)
                         ],
                       ),
                       SizedBox(height: 10,),
-                      Text('Share your ideas for new features and\n'
-                        'improvements.',style: TextStyle(color: Colors.grey),),
+                      Text('My queries are running slow. Need help with\n'
+                        'optimizing database performance.',style: TextStyle(color: Colors.grey),),
                       SizedBox(height: 10,),
                       Row(
                         children: [
@@ -174,16 +165,14 @@ class _CommunityFormScreenState extends State<CommunityFormScreen> {
               SizedBox(height: 50,),
               Row(
                 children: [
-                  Text('Categories',style: TextStyle(color: Colors.black,fontSize: 18,fontWeight: FontWeight.w700),),
+                  Text('Topics',style: TextStyle(color: Colors.black,fontSize: 18,fontWeight: FontWeight.w700),),
                 ],
               ),
               SizedBox(height: 20,),
               Row(
                 children: [
                   GestureDetector(
-                    onTap: (){
-                      Navigator.push(context, MaterialPageRoute(builder: (context)=>TutorialsScreen()));
-                    },
+                    onTap: (){},
                     child: Container(
                       height: 60,
                       width: 180,
@@ -196,9 +185,9 @@ class _CommunityFormScreenState extends State<CommunityFormScreen> {
                         padding: const EdgeInsets.symmetric(horizontal: 20),
                         child: Row(
                           children: [
-                            Icon(Icons.book,color: primaryColor,),
+                            Icon(Icons.backpack_rounded,color: primaryColor,),
                             SizedBox(width: 10,),
-                            Text('Tutorials',style: TextStyle(color: Colors.black,fontWeight: FontWeight.w700),),
+                            Text('Backend',style: TextStyle(color: Colors.black,fontWeight: FontWeight.w700),),
 
 
                           ],
@@ -207,29 +196,24 @@ class _CommunityFormScreenState extends State<CommunityFormScreen> {
                     ),
                   ),
                   SizedBox(width: 10,),
-                  GestureDetector(
-                    onTap: (){
-                      Navigator.push(context, MaterialPageRoute(builder: (context)=>QAndAScreen()));
-                    },
-                    child: Container(
-                      height: 60,
-                      width: 180,
-                      decoration: BoxDecoration(
-                        color: Colors.grey.shade50,
-                        borderRadius: BorderRadius.circular(5),
-                        border: Border.all(color: Colors.grey.shade300),
-                      ),
-                      child: Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 20),
-                        child: Row(
-                          children: [
-                            Icon(Icons.question_mark,color: primaryColor,),
-                            SizedBox(width: 10,),
-                            Text('Q&A',style: TextStyle(color: Colors.black,fontWeight: FontWeight.w700),),
+                  Container(
+                    height: 60,
+                    width: 180,
+                    decoration: BoxDecoration(
+                      color: Colors.grey.shade50,
+                      borderRadius: BorderRadius.circular(5),
+                      border: Border.all(color: Colors.grey.shade300),
+                    ),
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 20),
+                      child: Row(
+                        children: [
+                          Icon(Icons.code_off_outlined,color: primaryColor,),
+                          SizedBox(width: 10,),
+                          Text('Frontend',style: TextStyle(color: Colors.black,fontWeight: FontWeight.w700),),
 
 
-                          ],
-                        ),
+                        ],
                       ),
                     ),
                   ),
@@ -238,62 +222,53 @@ class _CommunityFormScreenState extends State<CommunityFormScreen> {
               SizedBox(height: 10,),
               Row(
                 children: [
-                  GestureDetector(
-                    onTap: (){
-                      Navigator.push(context, MaterialPageRoute(builder: (context)=>TipsScreen()));
-                    },
-                    child: Container(
-                      height: 60,
-                      width: 180,
-                      decoration: BoxDecoration(
-                        color: Colors.grey.shade50,
-                        borderRadius: BorderRadius.circular(5),
-                        border: Border.all(color: Colors.grey.shade300),
-                      ),
-                      child: Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 20),
-                        child: Row(
-                          children: [
-                            Icon(Icons.lightbulb,color: primaryColor,),
-                            SizedBox(width: 10,),
-                            Text('Tips',style: TextStyle(color: Colors.black,fontWeight: FontWeight.w700),),
-                    
-                    
-                          ],
-                        ),
+                  Container(
+                    height: 60,
+                    width: 180,
+                    decoration: BoxDecoration(
+                      color: Colors.grey.shade50,
+                      borderRadius: BorderRadius.circular(5),
+                      border: Border.all(color: Colors.grey.shade300),
+                    ),
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 20),
+                      child: Row(
+                        children: [
+                          Icon(Icons.settings,color: primaryColor,),
+                          SizedBox(width: 10,),
+                          Text('DevOps',style: TextStyle(color: Colors.black,fontWeight: FontWeight.w700),),
+
+
+                        ],
                       ),
                     ),
                   ),
                   SizedBox(width: 10,),
-                  GestureDetector(
-                    onTap: (){
-                      Navigator.push(context, MaterialPageRoute(builder: (context)=>NewsScreen()));
-                    },
-                    child: Container(
-                      height: 60,
-                      width: 180,
-                      decoration: BoxDecoration(
-                        color: Colors.grey.shade50,
-                        borderRadius: BorderRadius.circular(5),
-                        border: Border.all(color: Colors.grey.shade300),
-                      ),
-                      child: Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 20),
-                        child: Row(
-                          children: [
-                            Icon(Icons.speaker,color: primaryColor,),
-                            SizedBox(width: 10,),
-                            Text('News',style: TextStyle(color: Colors.black,fontWeight: FontWeight.w700),),
+                  Container(
+                    height: 60,
+                    width: 180,
+                    decoration: BoxDecoration(
+                      color: Colors.grey.shade50,
+                      borderRadius: BorderRadius.circular(5),
+                      border: Border.all(color: Colors.grey.shade300),
+                    ),
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 20),
+                      child: Row(
+                        children: [
+                          Icon(Icons.phone_android,color: primaryColor,),
+                          SizedBox(width: 10,),
+                          Text('Mobile',style: TextStyle(color: Colors.black,fontWeight: FontWeight.w700),),
 
 
-                          ],
-                        ),
+                        ],
                       ),
                     ),
                   ),
                 ],
               ),
-              SizedBox(height: 50,),
+              SizedBox(height: 30,),
+
             ],
           ),
         ),

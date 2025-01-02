@@ -140,6 +140,7 @@ class _FacebookScreenState extends State<FacebookScreen> {
                   ),
                 ),
               ),
+              SizedBox(height: 30,),
             ],
           ),
         ),

@@ -170,6 +170,7 @@ class _PaymentScreenThirteenState extends State<PaymentScreenThirteen> {
                     )
                 ),
               ),
+              SizedBox(height: 50,),
             ],
           ),
         ),

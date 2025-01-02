@@ -120,7 +120,7 @@ class _ServiceRequestZeroOneScreenState extends State<ServiceRequestZeroOneScree
           Align(
             alignment: Alignment.bottomCenter,
             child: Container(
-              height: MediaQuery.of(context).size.height * 0.6, // Increased height
+              height: MediaQuery.of(context).size.height * 0.6,
               decoration: BoxDecoration(
                 color: Colors.white,
                 borderRadius: BorderRadius.only(

@@ -252,7 +252,8 @@ class _PaymentScreenNineState extends State<PaymentScreenNine> {
                 ),
               ),
               SizedBox(height: 15,),
-              Text('Secured by SSL 256-bit encryption',style: TextStyle(color: Colors.grey,fontSize: 13),)
+              Text('Secured by SSL 256-bit encryption',style: TextStyle(color: Colors.grey,fontSize: 13),),
+              SizedBox(height: 30,),
             ],
           ),
         ),

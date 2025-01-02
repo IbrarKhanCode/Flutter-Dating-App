@@ -304,7 +304,7 @@ class _HelpAndSupportScreenState extends State<HelpAndSupportScreen> {
                   ),
                 ),
               ),
-              SizedBox(height: 20,),
+              SizedBox(height: 50,),
             ],
           ),
         ),

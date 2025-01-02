@@ -151,7 +151,7 @@ class _EmailSupportScreenState extends State<EmailSupportScreen> {
                   ),
                 ),
               ),
-              SizedBox(height: 20,),
+              SizedBox(height: 30,),
             ],
           ),
         ),

@@ -155,7 +155,8 @@ class _PhoneSupportScreenState extends State<PhoneSupportScreen> {
                     ],
                   ),
                 ),
-              )
+              ),
+              SizedBox(height: 30,),
             ]
           ),
         ),

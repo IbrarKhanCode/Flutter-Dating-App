@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:service_app/View/Get_Started/Auth/details_login_screen.dart';
+import 'package:service_app/View/Get_Started/Auth/signup_screen.dart';
 
 class SignupAndLoginScreen extends StatefulWidget {
   const SignupAndLoginScreen({super.key});
@@ -49,8 +50,19 @@ class _SignupAndLoginScreenState extends State<SignupAndLoginScreen> {
                     child: Center(child: Text('Sign Up',style: TextStyle(
                         color: Color(0xffAC1BF5),fontWeight: FontWeight.w500),)),
                   ),
-                  SizedBox(width: 50,),
-                  Text('Login',style: TextStyle(color: Colors.grey),)
+                  SizedBox(width: 20,),
+                  GestureDetector(
+                    onTap: (){
+                      Navigator.push(context, MaterialPageRoute(builder: (context)=>DetailsLoginScreen()));
+                    },
+                    child: Container(
+                      height: 40,
+                        width: 100,
+                        decoration: BoxDecoration(
+                          color: Colors.transparent
+                        ),
+                        child: Center(child: Text('Login',style: TextStyle(color: Colors.grey),))),
+                  )
                 ],
               ),
             ),
@@ -358,7 +370,7 @@ class _SignupAndLoginScreenState extends State<SignupAndLoginScreen> {
             SizedBox(height: 20,),
             GestureDetector(
               onTap: (){
-                Navigator.push(context, MaterialPageRoute(builder: (context)=>DetailsLoginScreen()));
+                Navigator.push(context, MaterialPageRoute(builder: (context)=>SignupScreen()));
               },
               child: Container(
                 height: 50,

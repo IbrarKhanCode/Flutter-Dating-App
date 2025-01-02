@@ -101,6 +101,7 @@ class _LanguageScreenState extends State<LanguageScreen> {
                 ),
               ),
             ),
+            SizedBox(height: 30,),
           ],
         ),
       ),

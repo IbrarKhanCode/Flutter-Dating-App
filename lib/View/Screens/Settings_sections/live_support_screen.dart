@@ -169,9 +169,8 @@ class _LiveSupportScreenState extends State<LiveSupportScreen> {
                     child: Center(child: Icon(Icons.send,color: Colors.white,size: 20,)),
                   )
                 ],
-              )
-
-
+              ),
+              SizedBox(height: 50,),
             ],
           ),
         ),

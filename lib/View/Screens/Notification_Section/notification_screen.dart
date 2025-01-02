@@ -63,7 +63,7 @@ class _NotificationScreenState extends State<NotificationScreen> {
               child: Column(
                 children: [
                   Container(
-                    height: 50,
+                    height: 30,
                     child: TabBar(
                         labelColor: primaryColor,
                         labelStyle: TextStyle(fontSize: 12,fontWeight: FontWeight.w700),

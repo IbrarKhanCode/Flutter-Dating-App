@@ -212,7 +212,9 @@ class ProfileEditScreen extends StatelessWidget {
                           ),
                         ),
                         GestureDetector(
-                          onTap: () {},
+                          onTap: () {
+                            Navigator.push(context, MaterialPageRoute(builder: (context)=>ProfileMyServicesScreen()));
+                          },
                           child: const Text(
                             "See all",
                             style: TextStyle(
