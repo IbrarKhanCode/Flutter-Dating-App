@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:service_app/Custom/custom.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:service_app/View/Screens/Home_section/comment_screen.dart';
+import 'package:service_app/View/Screens/Home_section/share_screen.dart';
+import 'package:service_app/View/Screens/Home_section/storie_screen.dart';
 
 class HomePageScreen extends StatefulWidget {
   const HomePageScreen({super.key});
@@ -11,7 +14,6 @@ class HomePageScreen extends StatefulWidget {
 
 class _HomePageScreenState extends State<HomePageScreen> {
 
-  int _selectedIndex = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -35,15 +37,20 @@ class _HomePageScreenState extends State<HomePageScreen> {
                 children: [
                   Column(
                     children: [
-                      Container(
-                        height: 80,
-                        width: 80,
-                        decoration: BoxDecoration(
-                          border: Border.all(color: primaryColor,width: 2),
-                          borderRadius: BorderRadius.circular(40,),
-                          image: DecorationImage(
-                            fit: BoxFit.cover,
-                              image: AssetImage('images/you.png'))
+                      GestureDetector(
+                        onTap: (){
+                          Navigator.push(context, MaterialPageRoute(builder: (context)=>StorieScreen()));
+                        },
+                        child: Container(
+                          height: 80,
+                          width: 80,
+                          decoration: BoxDecoration(
+                            border: Border.all(color: primaryColor,width: 2),
+                            borderRadius: BorderRadius.circular(40,),
+                            image: DecorationImage(
+                              fit: BoxFit.cover,
+                                image: AssetImage('images/you.png'))
+                          ),
                         ),
                       ),
                       SizedBox(height: 10,),
@@ -117,7 +124,7 @@ class _HomePageScreenState extends State<HomePageScreen> {
                     decoration: BoxDecoration(
                       image: DecorationImage(
                         fit: BoxFit.cover,
-                          image: AssetImage('images/sarah.png'))
+                          image: AssetImage('images/sarah 2.png'))
                     ),
                   ),
                   SizedBox(width: 10,),
@@ -127,7 +134,8 @@ class _HomePageScreenState extends State<HomePageScreen> {
                       Text('Sarah Wilson',style: TextStyle(color: Colors.black,fontWeight: FontWeight.w700),),
                       Text('Central Park, NY',style: TextStyle(color: Colors.grey),),
                     ],
-                  )
+                  ),
+                  Icon(Icons.more_horiz_outlined),
                 ],
               ),
               SizedBox(height: 10,),
@@ -144,10 +152,17 @@ class _HomePageScreenState extends State<HomePageScreen> {
               Row(
                 children: [
                   Icon(Icons.favorite_border,size: 30,),
-                  SizedBox(width: 15,),
-                  Icon(FontAwesomeIcons.comment,size: 25,),
-                  SizedBox(width: 15,),
-                  Icon(FontAwesomeIcons.paperPlane,size: 25,),
+                  IconButton(
+                    onPressed: (){
+                      Navigator.push(context, MaterialPageRoute(builder: (context)=>CommentScreen()));
+                    },
+                      icon: Icon(FontAwesomeIcons.comment,size: 25,)),
+
+                  GestureDetector(
+                    onTap: (){
+                      Navigator.push(context, MaterialPageRoute(builder: (context)=>ShareScreen()));
+                    },
+                      child: Icon(FontAwesomeIcons.paperPlane,size: 25,)),
                   Spacer(),
                   Icon(Icons.bookmark_outline_outlined,size: 30,)
                 ],
@@ -192,7 +207,7 @@ class _HomePageScreenState extends State<HomePageScreen> {
                     decoration: BoxDecoration(
                         image: DecorationImage(
                             fit: BoxFit.cover,
-                            image: AssetImage('images/david.png'))
+                            image: AssetImage('images/chen 2.png'))
                     ),
                   ),
                   SizedBox(width: 10,),
@@ -202,7 +217,8 @@ class _HomePageScreenState extends State<HomePageScreen> {
                       Text('David Chen',style: TextStyle(color: Colors.black,fontWeight: FontWeight.w700),),
                       Text('Brooklyn Bridge',style: TextStyle(color: Colors.grey),),
                     ],
-                  )
+                  ),
+                  Icon(Icons.more_horiz_outlined),
                 ],
               ),
               SizedBox(height: 10,),
@@ -265,40 +281,6 @@ class _HomePageScreenState extends State<HomePageScreen> {
             ],
           ),
         ),
-      ),
-      bottomNavigationBar: BottomNavigationBar(
-        currentIndex: _selectedIndex,
-        type: BottomNavigationBarType.fixed,
-        backgroundColor: Colors.white,
-        items: [
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            label: "Home",
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.search),
-            label: "Search",
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.add_box),
-            label: "Premium",
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.favorite),
-            label: "Profile",
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.person),
-            label: "Profile",
-          ),
-        ],
-        selectedItemColor: Colors.purple,
-        unselectedItemColor: Colors.grey,
-        onTap: (index) {
-          setState(() {
-            _selectedIndex = index;
-          });
-        },
       ),
     );
   }

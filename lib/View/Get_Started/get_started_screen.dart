@@ -70,7 +70,7 @@ class _GetStartedScreenState extends State<GetStartedScreen> {
               // Get Started Button
               GestureDetector(
                 onTap: (){
-                  Navigator.push(context, MaterialPageRoute(builder: (context)=>SignupAndLoginScreen()));
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=>BottomNavigationBarTwo()));
                 },
                 child: Container(
                   height: 50,

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:service_app/Custom/custom.dart';
+import 'package:service_app/View/Screens/Home_section/home_page_screen.dart';
 import 'package:service_app/View/Screens/Settings_sections/setting_screen.dart';
 import 'package:service_app/View/Screens/admin_dashboard_screen.dart';
 
@@ -17,7 +18,7 @@ class _BottomNavigationBarTwoState extends State<BottomNavigationBarTwo> {
   final List<Widget> screens = [
 
     AdminDashboardScreen(),
-    Center(child: Text('User Screen')),
+    HomePageScreen(),
     Center(child: Text('Stats Screen')),
     SettingScreen(),
 
