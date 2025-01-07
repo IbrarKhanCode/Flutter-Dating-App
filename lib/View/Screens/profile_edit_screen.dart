@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:page_transition/page_transition.dart';
 import 'package:service_app/Custom/custom.dart';
 import 'package:service_app/View/Screens/profile_my_services_screen.dart';
-import 'package:service_app/View/Screens/service_request_zero_one_screen.dart';
 
 class ProfileEditScreen extends StatelessWidget {
   const ProfileEditScreen({Key? key}) : super(key: key);
@@ -144,9 +144,7 @@ class ProfileEditScreen extends StatelessWidget {
                     onPressed: () {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(
-                          builder: (context) => ProfileMyServicesScreen(),
-                        ),
+                          PageTransition(child: ProfileMyServicesScreen(), type: PageTransitionType.rightToLeft,duration: Duration(milliseconds: 400))
                       );
                     },
                     style: ElevatedButton.styleFrom(
@@ -213,7 +211,7 @@ class ProfileEditScreen extends StatelessWidget {
                         ),
                         GestureDetector(
                           onTap: () {
-                            Navigator.push(context, MaterialPageRoute(builder: (context)=>ProfileMyServicesScreen()));
+                            Navigator.push(context, PageTransition(child: ProfileMyServicesScreen(), type: PageTransitionType.rightToLeft,duration: Duration(milliseconds: 400)));
                           },
                           child: const Text(
                             "See all",

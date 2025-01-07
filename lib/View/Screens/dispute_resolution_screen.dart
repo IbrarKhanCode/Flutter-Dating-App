@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:page_transition/page_transition.dart';
 import 'package:service_app/Custom/custom.dart';
 import 'package:service_app/View/Screens/certificate_screen.dart';
 import 'package:service_app/View/Screens/dispute_resolution_zero_one_screen.dart';
@@ -25,7 +26,9 @@ class _DisputeResolutionScreenState extends State<DisputeResolutionScreen> {
         backgroundColor: Colors.white,
         leading: IconButton(
           icon: Icon(Icons.arrow_back, color: Colors.black),
-          onPressed: () {},
+          onPressed: () {
+            Navigator.pop(context);
+          },
         ),
         actions: [
           TextButton(
@@ -175,7 +178,7 @@ class _DisputeResolutionScreenState extends State<DisputeResolutionScreen> {
               SizedBox(height: 16),
               ElevatedButton(
                 onPressed: () {
-                  Navigator.push(context, MaterialPageRoute(builder: (context)=>CertificateScreen()));
+                  Navigator.push(context, PageTransition(child: CertificateScreen(), type: PageTransitionType.rightToLeft,duration: Duration(milliseconds: 400)));
                 },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: primaryColor,

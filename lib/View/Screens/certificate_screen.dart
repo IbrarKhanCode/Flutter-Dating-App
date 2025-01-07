@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:page_transition/page_transition.dart';
 import 'package:service_app/Custom/custom.dart';
 import 'package:service_app/View/Screens/skill_showcase_screen.dart';
 
@@ -367,7 +368,7 @@ class _CertificateScreenState extends State<CertificateScreen> {
         padding: const EdgeInsets.all(16.0),
         child: ElevatedButton(
           onPressed: () {
-            Navigator.push(context, MaterialPageRoute(builder: (context)=>SkillShowcaseScreen()));
+            Navigator.push(context, PageTransition(child: SkillShowcaseScreen(), type: PageTransitionType.rightToLeft,duration: Duration(milliseconds: 400)));
           },
           style: ElevatedButton.styleFrom(
             backgroundColor: primaryColor,

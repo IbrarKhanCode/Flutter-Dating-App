@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:page_transition/page_transition.dart';
 import 'package:service_app/View/Screens/Payment_Section/payment_zero_screen.dart';
 
 class PendingMatchesScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       appBar: AppBar(
         title: Text(
           "12 Pending Matches",
@@ -24,6 +26,7 @@ class PendingMatchesScreen extends StatelessWidget {
           child: Padding(
             padding: const EdgeInsets.all(16.0),
             child: Card(
+              color: Colors.white,
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(16.0),
               ),
@@ -102,8 +105,7 @@ class PendingMatchesScreen extends StatelessWidget {
                       IconButton(
                         icon: Icon(Icons.favorite, color: Colors.purple),
                         onPressed: () {
-                          Navigator.push(context, MaterialPageRoute(builder: (context)=>PaymentZeroScreen()));
-                        },
+                          Navigator.push(context, PageTransition(child: PaymentZeroScreen(), type: PageTransitionType.topToBottom,duration: Duration(milliseconds: 400)));                        },
                         iconSize: 32,
                       ),
                     ],

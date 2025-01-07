@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:page_transition/page_transition.dart';
 import 'package:service_app/Custom/custom.dart';
 import 'package:service_app/View/Screens/service_request_screen.dart';
 
@@ -36,7 +37,11 @@ class _ServicePageScreenState extends State<ServicePageScreen> {
                           enabledBorder: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(8),
                               borderSide: BorderSide(color: Colors.grey.shade200)
-                          )
+                          ),
+                        focusedBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(8),
+                          borderSide: BorderSide(color: primaryColor),
+                        ),
                       ),
                     ),
                   ),
@@ -216,7 +221,7 @@ class _ServicePageScreenState extends State<ServicePageScreen> {
                             Spacer(),
                             GestureDetector(
                               onTap: (){
-                                Navigator.push(context, MaterialPageRoute(builder: (context)=>ServiceRequestScreen()));
+                                Navigator.push(context, PageTransition(child: ServiceRequestScreen(), type: PageTransitionType.topToBottom,duration: Duration(milliseconds: 400)));
                               },
                               child: Container(
                                 height: 33,

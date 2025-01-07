@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:page_transition/page_transition.dart';
 import 'package:service_app/View/Screens/pending_matches_screen.dart';
 
 class RateExperienceScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       appBar: AppBar(
         title: Text('Rate Your Experience'),
         backgroundColor: Colors.white,
-        foregroundColor: Colors.black,
         elevation: 1,
         leading: IconButton(
           icon: Icon(Icons.arrow_back),
@@ -129,8 +130,7 @@ class RateExperienceScreen extends StatelessWidget {
                 width: double.infinity,
                 child: ElevatedButton(
                   onPressed: () {
-                    Navigator.push(context, MaterialPageRoute(builder: (context)=>PendingMatchesScreen()));
-                  },
+                    Navigator.push(context, PageTransition(child: PendingMatchesScreen(), type: PageTransitionType.topToBottom,duration: Duration(milliseconds: 400)));                  },
                   child: Text(
                     'Submit Review',
                     style: TextStyle(

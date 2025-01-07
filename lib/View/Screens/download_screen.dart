@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:page_transition/page_transition.dart';
+import 'package:service_app/Custom/custom.dart';
 import 'package:service_app/View/Screens/rate_experience_screen.dart';
 
 class DownloadScreen extends StatefulWidget {
@@ -171,20 +173,20 @@ class _DownloadScreenState extends State<DownloadScreen> {
                 maxLines: 3,
               ),
               SizedBox(height: 16),
-              ElevatedButton(
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => RateExperienceScreen(),
+
+              GestureDetector(
+                onTap: (){
+                  Navigator.push(context, PageTransition(child: RateExperienceScreen(), type: PageTransitionType.topToBottom,duration: Duration(milliseconds: 400)));                },
+                child: Container(
+                    height: 50,
+                    width: MediaQuery.of(context).size.width,
+                    decoration: BoxDecoration(
+                      color: primaryColor,
+                      borderRadius: BorderRadius.circular(25)
                     ),
-                  );
-                },
-                style: ElevatedButton.styleFrom(
-                  minimumSize: Size(double.infinity, 48),
-                ),
-                child: Text("Rate Service"),
+                    child: Center(child: Text("Rate Service",style: TextStyle(color: Colors.white),))),
               ),
+
               SizedBox(height: 16),
               Center(
                 child: TextButton(

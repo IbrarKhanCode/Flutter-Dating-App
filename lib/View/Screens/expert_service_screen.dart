@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:page_transition/page_transition.dart';
 import 'package:service_app/Custom/custom.dart';
 import 'package:service_app/View/Screens/service_request_one_screen.dart';
 
@@ -26,7 +27,7 @@ class _ExpertServiceScreenState extends State<ExpertServiceScreen> {
         actions: [
           GestureDetector(
             onTap: (){
-              Navigator.push(context, MaterialPageRoute(builder: (context)=>ServiceRequestOneScreen()));
+              Navigator.push(context, PageTransition(child: ServiceRequestOneScreen(), type: PageTransitionType.rightToLeft,duration: Duration(milliseconds: 400)));
             },
             child: Container(
               height: 30,

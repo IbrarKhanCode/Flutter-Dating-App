@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:page_transition/page_transition.dart';
 import 'package:service_app/Custom/custom.dart';
 import 'package:service_app/View/Screens/Payment_Section/payment_screen_one.dart';
 
@@ -139,8 +140,7 @@ class _PaymentZeroScreenState extends State<PaymentZeroScreen> {
                       SizedBox(height: 20,),
                       GestureDetector(
                         onTap: (){
-                          Navigator.push(context, MaterialPageRoute(builder: (context)=>PaymentScreenOne()));
-                        },
+                          Navigator.push(context, PageTransition(child: PaymentScreenOne(), type: PageTransitionType.topToBottom,duration: Duration(milliseconds: 400)));                        },
                         child: Container(
                           height: 50,
                           width: 350,

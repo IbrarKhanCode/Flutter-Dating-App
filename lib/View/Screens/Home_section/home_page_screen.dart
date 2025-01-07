@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:page_transition/page_transition.dart';
 import 'package:service_app/Custom/custom.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:service_app/View/Screens/Home_section/comment_screen.dart';
+import 'package:service_app/View/Screens/Home_section/message_screen.dart';
 import 'package:service_app/View/Screens/Home_section/share_screen.dart';
 import 'package:service_app/View/Screens/Home_section/storie_screen.dart';
 
@@ -24,15 +26,19 @@ class _HomePageScreenState extends State<HomePageScreen> {
           padding: const EdgeInsets.symmetric(horizontal: 15),
           child: Column(
             children: [
-              SizedBox(height: 50,),
+              SizedBox(height: 40,),
               Row(
                 children: [
                   Text('Story',style: TextStyle(color: Colors.black,fontSize: 19,fontWeight: FontWeight.w900),),
                   Spacer(),
-                  Icon(Icons.mail_outline_outlined,color: primaryColor,)
+                  IconButton(
+                    onPressed: (){
+                      Navigator.push(context, PageTransition(child: MessageScreen(),type: PageTransitionType.rightToLeft,duration: Duration(milliseconds: 400)));
+                    },
+                      icon: Icon(Icons.mail_outline_outlined,color: primaryColor,))
                 ],
               ),
-              SizedBox(height: 20,),
+              Divider(color: Colors.grey.shade200,),
               Row(
                 children: [
                   Column(

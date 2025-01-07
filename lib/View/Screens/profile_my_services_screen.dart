@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:page_transition/page_transition.dart';
 import 'package:service_app/Custom/custom.dart';
 import 'package:service_app/View/Screens/expert_service_screen.dart';
 
@@ -67,7 +68,7 @@ class _ProfileMyServicesScreenState extends State<ProfileMyServicesScreen> {
             padding: const EdgeInsets.only(right: 20),
             child: IconButton(
               onPressed: (){
-                Navigator.push(context, MaterialPageRoute(builder: (context)=>ExpertServiceScreen()));
+                Navigator.push(context, PageTransition(child: ExpertServiceScreen(), type: PageTransitionType.rightToLeft,duration: Duration(milliseconds: 400)));
               },
                 icon: Icon(Icons.add,color: Colors.black,)),
           )

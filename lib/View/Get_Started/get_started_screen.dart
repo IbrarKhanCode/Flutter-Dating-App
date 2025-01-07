@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:page_transition/page_transition.dart';
 import 'package:service_app/View/Get_Started/Auth/signup_and_login_screen.dart';
 import 'package:service_app/View/Screens/bottom_navigation_bar_two.dart';
 import 'package:service_app/View/Screens/privacy_screen.dart';
@@ -32,13 +33,13 @@ class _GetStartedScreenState extends State<GetStartedScreen> {
                 ),
               ),
               SizedBox(height: 10),
-              // Title
+
               Text(
                 "Swap Skills, Build Connections!",
                 style: TextStyle(fontSize: 18, color: Colors.black54),
               ),
               SizedBox(height: 20),
-              // Illustration Image
+
               Container(
                 height: 300,
                 width: 270,
@@ -50,7 +51,7 @@ class _GetStartedScreenState extends State<GetStartedScreen> {
                 ),
               ),
               SizedBox(height: 20),
-              // Heading
+
               Text(
                 "Match & Exchange Skills",
                 style: TextStyle(
@@ -60,17 +61,17 @@ class _GetStartedScreenState extends State<GetStartedScreen> {
                 ),
               ),
               SizedBox(height: 10),
-              // Description
+
               Text(
                 "Find perfect matches based on complementary\nskills and interests",
                 textAlign: TextAlign.center,
                 style: TextStyle(fontSize: 16, color: Colors.black54),
               ),
               SizedBox(height: 80),
-              // Get Started Button
+
               GestureDetector(
                 onTap: (){
-                  Navigator.push(context, MaterialPageRoute(builder: (context)=>BottomNavigationBarTwo()));
+                  Navigator.push(context, PageTransition(child: SignupAndLoginScreen(), type: PageTransitionType.rightToLeft,duration: Duration(milliseconds: 400)));
                 },
                 child: Container(
                   height: 50,
@@ -88,12 +89,12 @@ class _GetStartedScreenState extends State<GetStartedScreen> {
                 ),
               ),
               SizedBox(height: 20),
-              // Already Have an Account Section
+
               Container(
                 height: 50,
                 width: 350,
                 decoration: BoxDecoration(
-                  color: Colors.white, // White background for the container
+                  color: Colors.white,
                   borderRadius: BorderRadius.circular(8),
                 ),
                 child: Center(

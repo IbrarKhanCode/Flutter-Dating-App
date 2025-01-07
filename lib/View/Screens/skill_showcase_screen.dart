@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:page_transition/page_transition.dart';
 import 'package:service_app/Custom/custom.dart';
 import 'package:service_app/View/Screens/history_screen.dart';
 
@@ -49,7 +50,7 @@ class _SkillShowcaseScreenState extends State<SkillShowcaseScreen> {
                   children: [
                     GestureDetector(
                       onTap: (){
-                        Navigator.push(context, MaterialPageRoute(builder: (context)=>HistoryScreen()));
+                        Navigator.push(context, PageTransition(child: HistoryScreen(), type: PageTransitionType.rightToLeft,duration: Duration(milliseconds: 400)));
                       },
                       child: Container(
                         height: 35,

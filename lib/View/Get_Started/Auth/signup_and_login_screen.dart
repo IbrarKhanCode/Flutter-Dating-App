@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:page_transition/page_transition.dart';
+import 'package:service_app/Custom/custom.dart';
 import 'package:service_app/View/Get_Started/Auth/details_login_screen.dart';
 import 'package:service_app/View/Get_Started/Auth/signup_screen.dart';
 
@@ -53,7 +55,7 @@ class _SignupAndLoginScreenState extends State<SignupAndLoginScreen> {
                   SizedBox(width: 20,),
                   GestureDetector(
                     onTap: (){
-                      Navigator.push(context, MaterialPageRoute(builder: (context)=>DetailsLoginScreen()));
+                      Navigator.push(context, PageTransition(child: DetailsLoginScreen(), type: PageTransitionType.rightToLeft,duration: Duration(milliseconds: 400)));
                     },
                     child: Container(
                       height: 40,
@@ -132,8 +134,12 @@ class _SignupAndLoginScreenState extends State<SignupAndLoginScreen> {
                         hintStyle: TextStyle(color: Colors.grey),
                         enabledBorder: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(8),
-                            borderSide: BorderSide(color: Colors.grey.shade300)
-                        )
+                            borderSide: BorderSide(color: Colors.grey.shade300),
+                        ),
+                      focusedBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(8),
+                        borderSide: BorderSide(color: primaryColor),
+                      ),
                     ),
                   ),
                 )
@@ -159,7 +165,11 @@ class _SignupAndLoginScreenState extends State<SignupAndLoginScreen> {
                         enabledBorder: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(8),
                             borderSide: BorderSide(color: Colors.grey.shade300)
-                        )
+                        ),
+                      focusedBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(8),
+                        borderSide: BorderSide(color: primaryColor),
+                      ),
                     ),
                   ),
                 )
@@ -185,7 +195,11 @@ class _SignupAndLoginScreenState extends State<SignupAndLoginScreen> {
                         enabledBorder: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(8),
                             borderSide: BorderSide(color: Colors.grey.shade300)
-                        )
+                        ),
+                      focusedBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(8),
+                        borderSide: BorderSide(color: primaryColor),
+                      ),
                     ),
                   ),
                 )
@@ -370,7 +384,7 @@ class _SignupAndLoginScreenState extends State<SignupAndLoginScreen> {
             SizedBox(height: 20,),
             GestureDetector(
               onTap: (){
-                Navigator.push(context, MaterialPageRoute(builder: (context)=>SignupScreen()));
+                Navigator.push(context, PageTransition(child: SignupScreen(), type: PageTransitionType.rightToLeft,duration: Duration(milliseconds: 400)));
               },
               child: Container(
                 height: 50,

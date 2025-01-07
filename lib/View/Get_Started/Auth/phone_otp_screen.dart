@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:page_transition/page_transition.dart';
 import 'package:service_app/View/Screens/language_screen.dart';
 
 class PhoneOtpScreen extends StatefulWidget {
@@ -75,7 +76,7 @@ class _PhoneOtpScreenState extends State<PhoneOtpScreen> {
             SizedBox(height: 40,),
             GestureDetector(
               onTap: (){
-                Navigator.push(context, MaterialPageRoute(builder: (context)=>LanguageScreen()));
+                Navigator.push(context, PageTransition(child: LanguageScreen(), type: PageTransitionType.rightToLeft,duration: Duration(milliseconds: 400)));
               },
               child: Container(
                 height: 50,

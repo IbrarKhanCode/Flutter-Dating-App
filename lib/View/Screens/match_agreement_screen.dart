@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:page_transition/page_transition.dart';
 import 'package:service_app/Custom/custom.dart';
 import 'package:service_app/View/Screens/service_exchange_screen.dart';
 
@@ -356,7 +357,7 @@ class _MatchAgreementScreenState extends State<MatchAgreementScreen> {
                 SizedBox(width: 10,),
                 GestureDetector(
                   onTap: (){
-                    Navigator.push(context, MaterialPageRoute(builder: (context)=>ServiceExchangeScreen()));
+                    Navigator.push(context, PageTransition(child: ServiceExchangeScreen(), type: PageTransitionType.topToBottom,duration: Duration(milliseconds: 400)));
                   },
                   child: Container(
                     height: 50,

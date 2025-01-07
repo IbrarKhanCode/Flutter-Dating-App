@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:page_transition/page_transition.dart';
 import 'package:service_app/View/Screens/bottom_navigation_bar_screen.dart';
 
 class ProfileSetupScreen extends StatefulWidget {
@@ -342,7 +343,7 @@ class _ProfileSetupScreenState extends State<ProfileSetupScreen> {
               SizedBox(height: 50,),
               GestureDetector(
                 onTap: (){
-                  Navigator.push(context, MaterialPageRoute(builder: (context)=>BottomNavigationBarScreen()));
+                  Navigator.push(context, PageTransition(child: BottomNavigationBarScreen(), type: PageTransitionType.rotate,alignment: Alignment.center,duration: Duration(milliseconds: 500)));
                 },
                 child: Container(
                   height: 50,

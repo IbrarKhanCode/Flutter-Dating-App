@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:page_transition/page_transition.dart';
 import 'package:service_app/Custom/custom.dart';
 import 'package:service_app/View/Screens/Payment_Section/payment_screen_eight.dart';
 
@@ -193,8 +194,7 @@ class _PaymentScreenSevenState extends State<PaymentScreenSeven> {
               SizedBox(height: 20,),
               GestureDetector(
                 onTap: (){
-                  Navigator.push(context, MaterialPageRoute(builder: (context)=>PaymentScreenEight()));
-                },
+                  Navigator.push(context, PageTransition(child: PaymentScreenEight(), type: PageTransitionType.topToBottom,duration: Duration(milliseconds: 400)));                },
                 child: Container(
                   height: 50,
                   width: MediaQuery.of(context).size.width,

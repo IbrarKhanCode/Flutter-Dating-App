@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:page_transition/page_transition.dart';
 import 'package:service_app/Custom/custom.dart';
 import 'package:service_app/View/Screens/Payment_Section/payment_screen_nine.dart';
 
@@ -48,7 +49,11 @@ class _PaymentScreenEightState extends State<PaymentScreenEight> {
                     enabledBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(8),
                         borderSide: BorderSide(color: Colors.grey.shade300)
-                    )
+                    ),
+                  focusedBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(8),
+                    borderSide: BorderSide(color: primaryColor),
+                  ),
                 ),
               ),
               SizedBox(height: 20,),
@@ -66,7 +71,11 @@ class _PaymentScreenEightState extends State<PaymentScreenEight> {
                     enabledBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(8),
                         borderSide: BorderSide(color: Colors.grey.shade300)
-                    )
+                    ),
+                  focusedBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(8),
+                    borderSide: BorderSide(color: primaryColor),
+                  ),
                 ),
               ),
               SizedBox(height: 20,),
@@ -98,7 +107,11 @@ class _PaymentScreenEightState extends State<PaymentScreenEight> {
                           enabledBorder: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(8),
                               borderSide: BorderSide(color: Colors.grey.shade300)
-                          )
+                          ),
+                        focusedBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(8),
+                          borderSide: BorderSide(color: primaryColor),
+                        ),
                       ),
                     ),
                   ),
@@ -118,7 +131,11 @@ class _PaymentScreenEightState extends State<PaymentScreenEight> {
                           enabledBorder: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(8),
                               borderSide: BorderSide(color: Colors.grey.shade300)
-                          )
+                          ),
+                        focusedBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(8),
+                          borderSide: BorderSide(color: primaryColor),
+                        ),
                       ),
                     ),
                   ),
@@ -138,7 +155,11 @@ class _PaymentScreenEightState extends State<PaymentScreenEight> {
                           enabledBorder: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(8),
                               borderSide: BorderSide(color: Colors.grey.shade300)
-                          )
+                          ),
+                        focusedBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(8),
+                          borderSide: BorderSide(color: primaryColor),
+                        ),
                       ),
                     ),
                   ),
@@ -186,8 +207,7 @@ class _PaymentScreenEightState extends State<PaymentScreenEight> {
               SizedBox(height: 20,),
               GestureDetector(
                 onTap: (){
-                  Navigator.push(context, MaterialPageRoute(builder: (context)=>PaymentScreenNine()));
-                },
+                  Navigator.push(context, PageTransition(child: PaymentScreenNine(), type: PageTransitionType.topToBottom,duration: Duration(milliseconds: 400)));                },
                 child: Container(
                   height: 50,
                   width: MediaQuery.of(context).size.width,

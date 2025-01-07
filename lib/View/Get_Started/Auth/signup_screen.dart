@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:page_transition/page_transition.dart';
+import 'package:service_app/Custom/custom.dart';
 import 'package:service_app/View/Get_Started/Auth/signup_otp_screen.dart';
 
 class SignupScreen extends StatefulWidget {
@@ -43,7 +45,11 @@ class _SignupScreenState extends State<SignupScreen> {
                     enabledBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(8),
                         borderSide: BorderSide(color: Colors.grey.shade300)
-                    )
+                    ),
+                  focusedBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(8),
+                    borderSide: BorderSide(color: primaryColor),
+                  ),
                 ),
               ),
             ),
@@ -58,7 +64,11 @@ class _SignupScreenState extends State<SignupScreen> {
                     enabledBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(8),
                         borderSide: BorderSide(color: Colors.grey.shade300)
-                    )
+                    ),
+                  focusedBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(8),
+                    borderSide: BorderSide(color: primaryColor),
+                  ),
                 ),
               ),
             ),
@@ -73,7 +83,11 @@ class _SignupScreenState extends State<SignupScreen> {
                     enabledBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(8),
                         borderSide: BorderSide(color: Colors.grey.shade300)
-                    )
+                    ),
+                  focusedBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(8),
+                    borderSide: BorderSide(color: primaryColor),
+                  ),
                 ),
               ),
             ),
@@ -87,14 +101,18 @@ class _SignupScreenState extends State<SignupScreen> {
                     enabledBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(8),
                         borderSide: BorderSide(color: Colors.grey.shade300)
-                    )
+                    ),
+                  focusedBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(8),
+                    borderSide: BorderSide(color: primaryColor),
+                  ),
                 ),
               ),
             ),
             SizedBox(height: 30,),
             GestureDetector(
               onTap: (){
-                Navigator.push(context, MaterialPageRoute(builder: (context)=>SignupOtpScreen()));
+                Navigator.push(context, PageTransition(child: SignupOtpScreen(), type: PageTransitionType.rightToLeft,duration: Duration(milliseconds: 400)));
               },
               child: Container(
                 height: 50,

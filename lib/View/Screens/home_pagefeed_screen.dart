@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:page_transition/page_transition.dart';
 import 'package:service_app/Custom/custom.dart';
 import 'package:service_app/View/Screens/service_page_screen.dart';
 
@@ -256,7 +257,7 @@ class _HomePagefeedScreenState extends State<HomePagefeedScreen> {
               SizedBox(height: 20,),
               GestureDetector(
                 onTap: (){
-                  Navigator.push(context, MaterialPageRoute(builder: (context)=>ServicePageScreen()));
+                  Navigator.push(context, PageTransition(child: ServicePageScreen(), type: PageTransitionType.topToBottom,duration: Duration(milliseconds: 400)));
                 },
                   child: Text('View More Matches',style: TextStyle(color: primaryColor),)),
               SizedBox(height: 20,),

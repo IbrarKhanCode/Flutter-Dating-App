@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:page_transition/page_transition.dart';
 import 'package:service_app/Custom/custom.dart';
 import 'package:service_app/View/Screens/report_issue_screen.dart';
 
@@ -210,9 +211,7 @@ class _ViewDetailsScreenState extends State<ViewDetailsScreen> {
               ),
               SizedBox(height: 20,),
               GestureDetector(
-                onTap: (){
-                  // Navigator.push(context, MaterialPageRoute(builder: (context)=>BottomNavigationBarScreen()));
-                },
+                onTap: (){},
                 child: Container(
                   height: 50,
                   width: 350,
@@ -231,7 +230,7 @@ class _ViewDetailsScreenState extends State<ViewDetailsScreen> {
               SizedBox(height: 20,),
               GestureDetector(
                 onTap: (){
-                  Navigator.push(context, MaterialPageRoute(builder: (context)=>ReportIssueScreen()));
+                  Navigator.push(context, PageTransition(child: ReportIssueScreen(), type: PageTransitionType.rightToLeft,duration: Duration(milliseconds: 400)));
                 },
                 child: Container(
                   height: 50,

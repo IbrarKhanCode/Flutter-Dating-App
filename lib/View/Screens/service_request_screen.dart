@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:page_transition/page_transition.dart';
 import 'package:service_app/Custom/custom.dart';
 import 'package:service_app/View/Screens/match_agreement_screen.dart';
 
@@ -82,7 +83,7 @@ class _ServiceRequestScreenState extends State<ServiceRequestScreen> {
                   const SizedBox(height: 16),
                   ElevatedButton(
                     onPressed: () {
-                      Navigator.push(context, MaterialPageRoute(builder: (context)=>MatchAgreementScreen()));
+                      Navigator.push(context, PageTransition(child: MatchAgreementScreen(), type: PageTransitionType.topToBottom,duration: Duration(milliseconds: 400)));
                     },
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.purple,

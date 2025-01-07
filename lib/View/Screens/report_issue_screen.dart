@@ -52,7 +52,11 @@ class _ReportIssueScreenState extends State<ReportIssueScreen> {
                     enabledBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(8),
                         borderSide: BorderSide(color: Colors.grey.shade300)
-                    )
+                    ),
+                  focusedBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(8),
+                    borderSide: BorderSide(color: primaryColor),
+                  ),
                 ),
               ),
               SizedBox(height: 20,),
@@ -71,6 +75,10 @@ class _ReportIssueScreenState extends State<ReportIssueScreen> {
                   enabledBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(8),
                       borderSide: BorderSide(color: Colors.grey.shade200)
+                  ),
+                  focusedBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(8),
+                    borderSide: BorderSide(color: primaryColor),
                   ),
                   contentPadding: EdgeInsets.symmetric(vertical: 12, horizontal: 16),
                 ),

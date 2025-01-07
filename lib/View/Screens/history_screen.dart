@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:page_transition/page_transition.dart';
 import 'package:service_app/Custom/custom.dart';
 import 'package:service_app/View/Screens/view_details_screen.dart';
 
@@ -252,7 +253,7 @@ class _HistoryScreenState extends State<HistoryScreen> {
                     SizedBox(height: 10,),
                     GestureDetector(
                       onTap: (){
-                        Navigator.push(context, MaterialPageRoute(builder: (context)=>ViewDetailsScreen()));
+                        Navigator.push(context, PageTransition(child: ViewDetailsScreen(), type: PageTransitionType.rightToLeft,duration: Duration(milliseconds: 400)));
                       },
                       child: Container(
                         height: 50,

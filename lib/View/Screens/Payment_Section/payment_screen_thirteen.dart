@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:page_transition/page_transition.dart';
 import 'package:service_app/Custom/custom.dart';
 import 'package:service_app/View/Screens/Payment_Section/payment_screen_fourteen.dart';
 
@@ -58,8 +59,7 @@ class _PaymentScreenThirteenState extends State<PaymentScreenThirteen> {
                 children: [
                   GestureDetector(
                     onTap: (){
-                      Navigator.push(context, MaterialPageRoute(builder: (context)=>PaymentScreenFourteen()));
-                    },
+                      Navigator.push(context, PageTransition(child: PaymentScreenFourteen(), type: PageTransitionType.topToBottom,duration: Duration(milliseconds: 400)));                    },
                     child: Container(
                       height: 100,
                       width: 120,
@@ -155,7 +155,7 @@ class _PaymentScreenThirteenState extends State<PaymentScreenThirteen> {
                     enabledBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(8),
                         borderSide: BorderSide(color: Colors.grey.shade200,)
-                    )
+                    ),
                 ),
               ),
               SizedBox(height: 50,),
@@ -167,7 +167,11 @@ class _PaymentScreenThirteenState extends State<PaymentScreenThirteen> {
                     enabledBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(8),
                         borderSide: BorderSide(color: Colors.black,width: 2)
-                    )
+                    ),
+                  focusedBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(8),
+                    borderSide: BorderSide(color: primaryColor),
+                  ),
                 ),
               ),
               SizedBox(height: 50,),

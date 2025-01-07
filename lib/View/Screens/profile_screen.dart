@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:page_transition/page_transition.dart';
+import 'package:service_app/Custom/custom.dart';
 import 'package:service_app/View/Screens/profile_setup_screen.dart';
 
 class ProfileScreen extends StatefulWidget {
@@ -42,7 +44,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   ),
                   GestureDetector(
                     onTap: (){
-                      Navigator.push(context, MaterialPageRoute(builder: (context)=>ProfileSetupScreen()));
+                      Navigator.push(context, PageTransition(child: ProfileSetupScreen(), type: PageTransitionType.rightToLeft,duration: Duration(milliseconds: 400)));
                     },
                     child: Container(
                       height: 40,
@@ -79,7 +81,11 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         enabledBorder: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(8),
                             borderSide: BorderSide(color: Colors.grey.shade300)
-                        )
+                        ),
+                      focusedBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(8),
+                        borderSide: BorderSide(color: primaryColor),
+                      ),
                     ),
                   ),
                   TextField(
@@ -90,7 +96,11 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         enabledBorder: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(8),
                             borderSide: BorderSide(color: Colors.grey.shade300)
-                        )
+                        ),
+                      focusedBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(8),
+                        borderSide: BorderSide(color: primaryColor),
+                      ),
                     ),
                   ),
                 ],
@@ -114,7 +124,11 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     enabledBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(8),
                         borderSide: BorderSide(color: Colors.grey.shade300)
-                    )
+                    ),
+                  focusedBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(8),
+                    borderSide: BorderSide(color: primaryColor),
+                  ),
                 ),
               ),
             ),
@@ -135,7 +149,11 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     enabledBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(8),
                         borderSide: BorderSide(color: Colors.grey.shade300)
-                    )
+                    ),
+                  focusedBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(8),
+                    borderSide: BorderSide(color: primaryColor),
+                  ),
                 ),
               ),
             ),
@@ -156,7 +174,11 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     enabledBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(8),
                         borderSide: BorderSide(color: Colors.grey.shade300),
-                    )
+                    ),
+                  focusedBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(8),
+                    borderSide: BorderSide(color: primaryColor),
+                  ),
                 ),
               ),
             ),
@@ -179,7 +201,11 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     enabledBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(8),
                         borderSide: BorderSide(color: Colors.grey.shade300)
-                    )
+                    ),
+                  focusedBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(8),
+                    borderSide: BorderSide(color: primaryColor),
+                  ),
                 ),
               ),
             ),

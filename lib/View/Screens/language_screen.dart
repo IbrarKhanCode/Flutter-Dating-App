@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:page_transition/page_transition.dart';
+import 'package:service_app/Custom/custom.dart';
 import 'package:service_app/View/Screens/profile_screen.dart';
 
 class LanguageScreen extends StatefulWidget {
@@ -58,7 +60,11 @@ class _LanguageScreenState extends State<LanguageScreen> {
                     enabledBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(8),
                         borderSide: BorderSide(color: Colors.grey.shade200)
-                    )
+                    ),
+                  focusedBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(8),
+                    borderSide: BorderSide(color: primaryColor),
+                  ),
                 ),
               ),
             ),
@@ -84,7 +90,7 @@ class _LanguageScreenState extends State<LanguageScreen> {
             SizedBox(height: 20,),
             GestureDetector(
               onTap: (){
-                Navigator.push(context, MaterialPageRoute(builder: (context)=>ProfileScreen()));
+                Navigator.push(context, PageTransition(child: ProfileScreen(), type: PageTransitionType.rightToLeft,duration: Duration(milliseconds: 400)));
               },
               child: Container(
                 height: 50,

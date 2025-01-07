@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:page_transition/page_transition.dart';
 import 'package:service_app/View/Screens/download_screen.dart';
 
 class ServiceExchangeScreen extends StatelessWidget {
@@ -84,7 +85,7 @@ class ServiceExchangeScreen extends StatelessWidget {
                           SizedBox(height: 8),
                           ElevatedButton(
                             onPressed: () {
-                              Navigator.push(context, MaterialPageRoute(builder: (context)=>DownloadScreen()));
+                              Navigator.push(context, PageTransition(child: DownloadScreen(), type: PageTransitionType.topToBottom,duration: Duration(milliseconds: 400)));
                             },
                             style: ElevatedButton.styleFrom(
                               backgroundColor: Colors.purple,
@@ -154,7 +155,7 @@ class ServiceExchangeScreen extends StatelessWidget {
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.purple,
                     ),
-                    child: Text('Add Tag'),
+                    child: Text('Add Tag',style: TextStyle(color: Colors.white),),
                   ),
                 ],
               ),

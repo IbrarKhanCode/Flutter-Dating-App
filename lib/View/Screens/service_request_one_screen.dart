@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:page_transition/page_transition.dart';
 import 'package:service_app/Custom/custom.dart';
 import 'package:service_app/View/Screens/service_request_zero_one_screen.dart';
 
@@ -13,8 +14,14 @@ class _ServiceRequestOneScreenState extends State<ServiceRequestOneScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       appBar: AppBar(
-        leading: const Icon(Icons.arrow_back),
+        backgroundColor: Colors.white,
+        leading: IconButton(
+          onPressed: (){
+            Navigator.pop(context);
+          },
+            icon:  Icon(Icons.arrow_back)),
         actions: [
           IconButton(
             icon: const Icon(Icons.favorite_border),
@@ -168,7 +175,7 @@ class _ServiceRequestOneScreenState extends State<ServiceRequestOneScreen> {
                 Spacer(),
                 ElevatedButton(
                   onPressed: () {
-                    Navigator.push(context, MaterialPageRoute(builder: (context)=>ServiceRequestZeroOneScreen()));
+                    Navigator.push(context, PageTransition(child: ServiceRequestZeroOneScreen(), type: PageTransitionType.rightToLeft,duration: Duration(milliseconds: 400)));
                   },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: primaryColor

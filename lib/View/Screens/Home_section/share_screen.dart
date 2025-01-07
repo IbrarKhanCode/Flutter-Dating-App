@@ -52,7 +52,7 @@ class _ShareScreenState extends State<ShareScreen> {
                       ),
                       focusedBorder: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(8),
-                          borderSide: BorderSide(color: primaryColor)
+                          borderSide: BorderSide(color: primaryColor),
                       ),
                       contentPadding: EdgeInsets.symmetric(vertical: 12, horizontal: 16),
                     ),

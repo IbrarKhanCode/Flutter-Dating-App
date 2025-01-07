@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:page_transition/page_transition.dart';
 import 'package:service_app/View/Get_Started/Auth/phone_otp_screen.dart';
 
 
@@ -53,7 +54,7 @@ class _DetailsLoginScreenState extends State<DetailsLoginScreen> {
             SizedBox(height: 50,),
             GestureDetector(
               onTap: (){
-                Navigator.push(context, MaterialPageRoute(builder: (context)=>PhoneOtpScreen()));
+                Navigator.push(context, PageTransition(child: PhoneOtpScreen(), type: PageTransitionType.rightToLeft,duration: Duration(milliseconds: 400)));
               },
               child: Container(
                 height: 50,
