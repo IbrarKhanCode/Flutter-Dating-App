@@ -12,6 +12,24 @@ class SignupAndLoginScreen extends StatefulWidget {
 }
 
 class _SignupAndLoginScreenState extends State<SignupAndLoginScreen> {
+
+  final _formKey = GlobalKey<FormState>();
+  final TextEditingController emailController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
+
+   var _obscureText = true;
+  final FocusNode _focusNode = FocusNode();
+  final FocusNode _focusNode2 = FocusNode();
+
+  @override
+  void dispose() {
+    emailController.dispose();
+    passwordController.dispose();
+    _focusNode2.dispose();
+    _focusNode.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -27,7 +45,7 @@ class _SignupAndLoginScreenState extends State<SignupAndLoginScreen> {
                     fontSize: 27,
                     fontWeight: FontWeight.w500,
                     color: Color(0xffAC1BF5),
-                    fontFamily: 'Pacifico'
+
                 ),
               ),
             ),
@@ -42,21 +60,24 @@ class _SignupAndLoginScreenState extends State<SignupAndLoginScreen> {
               child: Row(
                 children: [
                   SizedBox(width: 10,),
-                  Container(
-                    height: 40,
-                    width: 180,
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(10)
+                  GestureDetector(
+                    onTap: (){
+                      Navigator.push(context, PageTransition(child: SignupScreen(), type: PageTransitionType.rightToLeft,duration: Duration(milliseconds: 400)));
+                    },
+                    child: Container(
+                      height: 40,
+                      width: 180,
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(10)
+                      ),
+                      child: Center(child: Text('Sign Up',style: TextStyle(
+                          color: Color(0xffAC1BF5),fontWeight: FontWeight.w500),)),
                     ),
-                    child: Center(child: Text('Sign Up',style: TextStyle(
-                        color: Color(0xffAC1BF5),fontWeight: FontWeight.w500),)),
                   ),
                   SizedBox(width: 20,),
                   GestureDetector(
-                    onTap: (){
-                      Navigator.push(context, PageTransition(child: DetailsLoginScreen(), type: PageTransitionType.rightToLeft,duration: Duration(milliseconds: 400)));
-                    },
+                    onTap: (){},
                     child: Container(
                       height: 40,
                         width: 100,
@@ -146,64 +167,90 @@ class _SignupAndLoginScreenState extends State<SignupAndLoginScreen> {
               ],
             ),
             SizedBox(height: 20,),
-            Column(
-              children: [
-                Row(
+            Form(
+              key: _formKey,
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 20),
+                child: Column(
                   children: [
-                    SizedBox(width: 20,),
-                    Text('Email or Phone Number',style: TextStyle(color: Colors.black,fontWeight: FontWeight.w500),),
-                  ],
-                ),
-                SizedBox(height: 10,),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 25),
-                  child: TextField(
-                    decoration: InputDecoration(
+                    Row(
+                      children: [
+
+                        Text('Email or Phone Number',style: TextStyle(color: Colors.black,fontWeight: FontWeight.w500),),
+                      ],
+                    ),
+                    SizedBox(height: 10,),
+                    TextFormField(
+                      focusNode: _focusNode,
+                      controller: emailController,
+                      decoration: InputDecoration(
                         hintText: 'Enter email or phone number',
-                        suffixIcon: Icon(Icons.toggle_off,color: Colors.grey,),
-                        hintStyle: TextStyle(color: Colors.grey),
+                        hintStyle: TextStyle(color: Colors.grey,),
+                        suffixIcon: Icon(Icons.swap_horiz,color: Colors.grey,),
                         enabledBorder: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(8),
-                            borderSide: BorderSide(color: Colors.grey.shade300)
+                          borderRadius: BorderRadius.circular(8),
+                          borderSide: BorderSide(color: Colors.grey.shade200),
                         ),
-                      focusedBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(8),
-                        borderSide: BorderSide(color: primaryColor),
+                        focusedBorder: OutlineInputBorder(
+                          borderSide: BorderSide(color: primaryColor),
+                          borderRadius: BorderRadius.circular(8),
+                        ),
                       ),
+                      validator: (value){
+                        if(value == null || value.isEmpty){
+                          return "Please enter your Email";
+                        }
+                        if (!RegExp(r'^[a-zA-Z0-9._%+-]+@gmail\.com$').hasMatch(value)) {
+                          return 'Please enter a valid Gmail address';
+                        }
+                        return null;
+                      },
                     ),
-                  ),
-                )
-              ],
-            ),
-            SizedBox(height: 20,),
-            Column(
-              children: [
-                Row(
-                  children: [
-                    SizedBox(width: 20,),
-                    Text('Password',style: TextStyle(color: Colors.black,fontWeight: FontWeight.w500),),
+                    SizedBox(height: 10,),
+                    Row(
+                      children: [
+
+                        Text('Password',style: TextStyle(color: Colors.black,fontWeight: FontWeight.w500),),
+                      ],
+                    ),
+                    SizedBox(height: 10,),
+                    TextFormField(
+                      focusNode: _focusNode2,
+                      obscureText: _obscureText,
+                      controller: passwordController,
+                        decoration: InputDecoration(
+                          hintText: 'Create password',
+                            hintStyle: TextStyle(color: Colors.grey,),
+                          suffixIcon: Icon(
+                            _obscureText == false?
+                            Icons.visibility:Icons.visibility_off,color: Colors.grey,),
+                            enabledBorder: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(8),
+                              borderSide: BorderSide(color: Colors.grey.shade200),
+                            ),
+                            focusedBorder: OutlineInputBorder(
+                                borderSide: BorderSide(color: primaryColor),
+                                borderRadius: BorderRadius.circular(8)
+                            ),
+                        ),
+                      onTap: (){
+                        setState(() {
+                          _obscureText = !_obscureText;
+                        });
+                      },
+                      validator: (value){
+                        if(value == null || value.isEmpty){
+                          return "Please enter your Password";
+                        }
+                        if(value.length < 6){
+                          return "Password must be at least 6 characters long";
+                        }
+                        return null;
+                      },
+                    ),
                   ],
                 ),
-                SizedBox(height: 10,),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 25),
-                  child: TextField(
-                    decoration: InputDecoration(
-                        hintText: 'Create password',
-                        suffixIcon: Icon(Icons.remove_red_eye,color: Colors.grey,),
-                        hintStyle: TextStyle(color: Colors.grey),
-                        enabledBorder: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(8),
-                            borderSide: BorderSide(color: Colors.grey.shade300)
-                        ),
-                      focusedBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(8),
-                        borderSide: BorderSide(color: primaryColor),
-                      ),
-                    ),
-                  ),
-                )
-              ],
+              ),
             ),
             SizedBox(height: 20,),
             Row(
@@ -384,7 +431,22 @@ class _SignupAndLoginScreenState extends State<SignupAndLoginScreen> {
             SizedBox(height: 20,),
             GestureDetector(
               onTap: (){
-                Navigator.push(context, PageTransition(child: SignupScreen(), type: PageTransitionType.rightToLeft,duration: Duration(milliseconds: 400)));
+                if(_formKey.currentState!.validate()){
+                  Navigator.push(context, PageTransition(child: DetailsLoginScreen(), type: PageTransitionType.rightToLeft,duration: Duration(milliseconds: 400))).then((_){
+                    _focusNode.unfocus();
+                    _focusNode2.unfocus();
+                    emailController.clear();
+                    passwordController.clear();
+                  });
+                }
+                else{
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    SnackBar(
+                      backgroundColor: Colors.red,
+                        duration: Duration(milliseconds: 800),
+                        content: Text('Please fix the errors')),
+                  );
+                }
               },
               child: Container(
                 height: 50,
