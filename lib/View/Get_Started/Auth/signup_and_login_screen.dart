@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:page_transition/page_transition.dart';
+import 'package:provider/provider.dart';
 import 'package:service_app/Custom/custom.dart';
+import 'package:service_app/View%20Model/Auth_Provider/auth_provider.dart';
 import 'package:service_app/View/Get_Started/Auth/details_login_screen.dart';
 import 'package:service_app/View/Get_Started/Auth/signup_screen.dart';
 
@@ -14,24 +16,15 @@ class SignupAndLoginScreen extends StatefulWidget {
 class _SignupAndLoginScreenState extends State<SignupAndLoginScreen> {
 
   final _formKey = GlobalKey<FormState>();
-  final TextEditingController emailController = TextEditingController();
-  final TextEditingController passwordController = TextEditingController();
-
-   var _obscureText = true;
-  final FocusNode _focusNode = FocusNode();
-  final FocusNode _focusNode2 = FocusNode();
-
-  @override
-  void dispose() {
-    emailController.dispose();
-    passwordController.dispose();
-    _focusNode2.dispose();
-    _focusNode.dispose();
-    super.dispose();
-  }
 
   @override
   Widget build(BuildContext context) {
+    final provider = Provider.of<AuthProvider>(context, listen: false);
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      provider.reset();
+    });
+
+
     return Scaffold(
         backgroundColor: Colors.white,
       body: SingleChildScrollView(
@@ -180,31 +173,28 @@ class _SignupAndLoginScreenState extends State<SignupAndLoginScreen> {
                       ],
                     ),
                     SizedBox(height: 10,),
-                    TextFormField(
-                      focusNode: _focusNode,
-                      controller: emailController,
-                      decoration: InputDecoration(
-                        hintText: 'Enter email or phone number',
-                        hintStyle: TextStyle(color: Colors.grey,),
-                        suffixIcon: Icon(Icons.swap_horiz,color: Colors.grey,),
-                        enabledBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(8),
-                          borderSide: BorderSide(color: Colors.grey.shade200),
-                        ),
-                        focusedBorder: OutlineInputBorder(
-                          borderSide: BorderSide(color: primaryColor),
-                          borderRadius: BorderRadius.circular(8),
-                        ),
-                      ),
-                      validator: (value){
-                        if(value == null || value.isEmpty){
-                          return "Please enter your Email";
+                    Consumer<AuthProvider>(
+                        builder: (context,provider,child){
+                          return TextFormField(
+                            focusNode: provider.emailFocusNode,
+                            controller: provider.emailController,
+                            validator: provider.validateEmail,
+                            onChanged: provider.setEmail,
+                            decoration: InputDecoration(
+                              hintText: 'Enter email or phone number',
+                              hintStyle: TextStyle(color: Colors.grey,),
+                              suffixIcon: Icon(Icons.swap_horiz,color: Colors.grey,),
+                              enabledBorder: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(8),
+                                borderSide: BorderSide(color: Colors.grey.shade200),
+                              ),
+                              focusedBorder: OutlineInputBorder(
+                                borderSide: BorderSide(color: primaryColor),
+                                borderRadius: BorderRadius.circular(8),
+                              ),
+                            ),
+                          );
                         }
-                        if (!RegExp(r'^[a-zA-Z0-9._%+-]+@gmail\.com$').hasMatch(value)) {
-                          return 'Please enter a valid Gmail address';
-                        }
-                        return null;
-                      },
                     ),
                     SizedBox(height: 10,),
                     Row(
@@ -214,40 +204,38 @@ class _SignupAndLoginScreenState extends State<SignupAndLoginScreen> {
                       ],
                     ),
                     SizedBox(height: 10,),
-                    TextFormField(
-                      focusNode: _focusNode2,
-                      obscureText: _obscureText,
-                      controller: passwordController,
-                        decoration: InputDecoration(
-                          hintText: 'Create password',
-                            hintStyle: TextStyle(color: Colors.grey,),
-                          suffixIcon: Icon(
-                            _obscureText == false?
-                            Icons.visibility:Icons.visibility_off,color: Colors.grey,),
-                            enabledBorder: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(8),
-                              borderSide: BorderSide(color: Colors.grey.shade200),
-                            ),
-                            focusedBorder: OutlineInputBorder(
-                                borderSide: BorderSide(color: primaryColor),
-                                borderRadius: BorderRadius.circular(8)
-                            ),
+                    Consumer<AuthProvider>(
+                        builder: (context,provider,child){
+                         return  TextFormField(
+                           focusNode: provider.passwordFocusNode,
+                           controller: provider.passwordController,
+                           validator: provider.validatePassword,
+                           onChanged: provider.setPassword,
+                           obscureText: provider.obscureText,
+                           decoration: InputDecoration(
+                             hintText: 'Create password',
+                             hintStyle: TextStyle(color: Colors.grey,),
+                             suffixIcon: IconButton(
+                               onPressed: (){
+                                 provider.passwordVisibility();
+                               },
+                               icon: Icon(
+                                 provider.obscureText ? Icons.visibility_off
+                                 :Icons.visibility,color: Colors.grey,),
+                             ),
+                             enabledBorder: OutlineInputBorder(
+                               borderRadius: BorderRadius.circular(8),
+                               borderSide: BorderSide(color: Colors.grey.shade200),
+                             ),
+                             focusedBorder: OutlineInputBorder(
+                                 borderSide: BorderSide(color: primaryColor),
+                                 borderRadius: BorderRadius.circular(8)
+                             ),
+                           ),
+                         );
+                        }
                         ),
-                      onTap: (){
-                        setState(() {
-                          _obscureText = !_obscureText;
-                        });
-                      },
-                      validator: (value){
-                        if(value == null || value.isEmpty){
-                          return "Please enter your Password";
-                        }
-                        if(value.length < 6){
-                          return "Password must be at least 6 characters long";
-                        }
-                        return null;
-                      },
-                    ),
+
                   ],
                 ),
               ),
@@ -433,11 +421,7 @@ class _SignupAndLoginScreenState extends State<SignupAndLoginScreen> {
               onTap: (){
                 if(_formKey.currentState!.validate()){
                   Navigator.push(context, PageTransition(child: DetailsLoginScreen(), type: PageTransitionType.rightToLeft,duration: Duration(milliseconds: 400))).then((_){
-                    _focusNode.unfocus();
-                    _focusNode2.unfocus();
-                    emailController.clear();
-                    passwordController.clear();
-                  });
+                  }).then((_)=>provider.reset());
                 }
                 else{
                   ScaffoldMessenger.of(context).showSnackBar(

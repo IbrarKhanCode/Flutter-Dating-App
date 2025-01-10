@@ -1,9 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:service_app/View%20Model/Auth_Provider/auth_provider.dart';
 import 'package:service_app/View/Get_Started/get_started_screen.dart';
 
 
 void main(){
-  runApp(MyApp());
+  runApp(
+    MultiProvider(
+        providers: [
+            ChangeNotifierProvider(create: (_)=>AuthProvider())
+        ],
+      child: MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
