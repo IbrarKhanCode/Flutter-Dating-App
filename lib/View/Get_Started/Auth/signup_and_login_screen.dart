@@ -437,7 +437,7 @@ class _SignupAndLoginScreenState extends State<SignupAndLoginScreen> {
                 width: 350,
                 decoration: BoxDecoration(
                     color:    Color(0xffAC1BF5),
-                    borderRadius: BorderRadius.circular(8)
+                    borderRadius: BorderRadius.circular(8),
                 ),
                 child: Center(
                   child: Text(
