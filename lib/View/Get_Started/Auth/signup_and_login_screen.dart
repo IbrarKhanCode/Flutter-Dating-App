@@ -449,10 +449,11 @@ class _SignupAndLoginScreenState extends State<SignupAndLoginScreen> {
             ),
             SizedBox(height: 20,),
             Row(
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                SizedBox(width: 20,),
+                SizedBox(width: 10,),
                 Text('By signing up, you agree to our',style: TextStyle(color: Colors.grey),),
-                Text('Terms of Service',style: TextStyle(color: Color(0xffAC1BF5)),),
+                Text(' Terms of Service',style: TextStyle(color: Color(0xffAC1BF5)),),
                 SizedBox(width: 5,),
                 Text('and',style: TextStyle(color: Colors.grey),),
               ],
