@@ -1,8 +1,9 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:page_transition/page_transition.dart';
 import 'package:provider/provider.dart';
 import 'package:service_app/Custom/custom.dart';
-import 'package:service_app/View%20Model/Auth_Provider/auth_provider.dart';
+import 'package:service_app/View%20Model/Provider/login_and_signup_provider.dart';
 import 'package:service_app/View/Get_Started/Auth/details_login_screen.dart';
 import 'package:service_app/View/Get_Started/Auth/signup_screen.dart';
 
@@ -19,7 +20,10 @@ class _SignupAndLoginScreenState extends State<SignupAndLoginScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final provider = Provider.of<AuthProvider>(context, listen: false);
+
+    FirebaseAuth auth = FirebaseAuth.instance;
+
+    final provider = Provider.of<LoginAndSignupProvider>(context, listen: false);
     WidgetsBinding.instance.addPostFrameCallback((_) {
       provider.reset();
     });
@@ -173,7 +177,7 @@ class _SignupAndLoginScreenState extends State<SignupAndLoginScreen> {
                       ],
                     ),
                     SizedBox(height: 10,),
-                    Consumer<AuthProvider>(
+                    Consumer<LoginAndSignupProvider>(
                         builder: (context,provider,child){
                           return TextFormField(
                             focusNode: provider.emailFocusNode,
@@ -204,7 +208,7 @@ class _SignupAndLoginScreenState extends State<SignupAndLoginScreen> {
                       ],
                     ),
                     SizedBox(height: 10,),
-                    Consumer<AuthProvider>(
+                    Consumer<LoginAndSignupProvider>(
                         builder: (context,provider,child){
                          return  TextFormField(
                            focusNode: provider.passwordFocusNode,
@@ -418,8 +422,10 @@ class _SignupAndLoginScreenState extends State<SignupAndLoginScreen> {
             ),
             SizedBox(height: 20,),
             GestureDetector(
-              onTap: (){
+              onTap: () async{
                 if(_formKey.currentState!.validate()){
+
+                 await auth.createUserWithEmailAndPassword(email: provider.emailController.text.trim(), password: provider.passwordController.text.trim());
                   Navigator.push(context, PageTransition(child: DetailsLoginScreen(), type: PageTransitionType.rightToLeft,duration: Duration(milliseconds: 400))).then((_){
                   }).then((_)=>provider.reset());
                 }

@@ -1,8 +1,9 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:page_transition/page_transition.dart';
 import 'package:provider/provider.dart';
 import 'package:service_app/Custom/custom.dart';
-import 'package:service_app/View%20Model/Auth_Provider/signup_provider.dart';
+import 'package:service_app/View%20Model/Provider/signup_provider.dart';
 import 'package:service_app/View/Get_Started/Auth/signup_otp_screen.dart';
 
 class SignupScreen extends StatefulWidget {
@@ -13,6 +14,9 @@ class SignupScreen extends StatefulWidget {
 }
 
 class _SignupScreenState extends State<SignupScreen> {
+
+  FirebaseAuth auth = FirebaseAuth.instance;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

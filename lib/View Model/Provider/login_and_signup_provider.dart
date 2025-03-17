@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class AuthProvider extends ChangeNotifier{
+class LoginAndSignupProvider extends ChangeNotifier{
 
   String _email = '';
   String _password = '';
