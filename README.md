@@ -1,16 +1,32 @@
-# service_app
+# 💘 Flutter Dating App
 
-A new Flutter project.
+A modern and responsive **Dating App** built with **Flutter** and **Dart**, using **MVVM architecture**, **Firebase Authentication**, and **Provider** for state management. This app offers a clean UI, smooth transitions, and robust authentication — all developed in just 7 days with over 70+ unique screens.
 
-## Getting Started
+---
 
-This project is a starting point for a Flutter application.
+## 🚀 Features
 
-A few resources to get you started if this is your first Flutter project:
+- 🔐 **Firebase Authentication** for secure login and signup
+- 📱 **Responsive UI** supporting all screen sizes and orientations
+- ⚙️ **MVVM Architecture** for scalable, maintainable code
+- 🔄 **Provider** for real-time UI updates and clean state management
+- 🌀 **Smooth Page Transitions** and custom animations
+- ✅ **Input Validation** on login and signup forms
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+---
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## 🛠️ Tech Stack
+
+- **Flutter & Dart**
+- **Firebase Authentication**
+- **Provider (State Management)**
+- **MVVM (Model-View-ViewModel) Architecture**
+- **Custom Animations & Transitions**
+- **Responsive UI Components**
+
+---
+
+## 🧱 Architecture Overview
+
+This app follows a **clean MVVM architecture** with a well-separated structure for scalability and maintainability.
+
