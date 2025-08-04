@@ -1,7 +1,11 @@
 # 💘 Flutter Dating App
 
-A modern and responsive **Dating App** built with **Flutter** and **Dart**, using **MVVM architecture**, **Firebase Authentication**, and **Provider** for state management. This app offers a clean UI, smooth transitions, and robust authentication — all developed in just 7 days with over 70+ unique screens.
+A modern and responsive Dating App built with **Flutter** and **Dart**, using MVVM architecture, Firebase Authentication, and Provider for state management.
+
+This app offers a clean UI, smooth transitions, and robust authentication — all developed in just 7 days with over 70+ unique screens.
+
 This project was completed as part of my internship at **Structure Limited**, where I was responsible for building scalable and production-ready mobile solutions using Flutter.
+
 ---
 
 ## 🚀 Features
